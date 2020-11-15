@@ -1,21 +1,24 @@
-let generateFibonacci = function (n) {
+
+let fibonacci = function (n) {
     
-    for(let i=0;i<n;i++) {
-        console.log(fibonacci(i));
+    
+    let term1 = 0;
+    let term2 = 1;
+    let term3;
+    
+    console.log("Fibonacci series:");
+    console.log(term1);
+    console.log(term2);
+    
+    for(let i=2;i<=n;i++) {
+
+        term3 = term2 + term1;
+        console.log( term3 );
+        
+        term1 = term2;
+        term2 = term3;
+
     }
 }
 
-let fibonacci = (function () {
-    let arr=[0,1];
-    let fib=function(n){
-        let result=arr[n];
-        if(typeof result!=='number') {
-            result=fib(n-1)+fib(n-2);
-            arr[n]=result;
-        }
-        return result;
-    }
-    return fib;
-}());
-
-generateFibonacci(14);
+fibonacci(14);

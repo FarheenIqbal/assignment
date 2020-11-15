@@ -24,18 +24,13 @@ let displayLine = function (i) {
     }
     return str;
 }
-//using memoization 
-let factorial = (function () {
-    let arr = [ 1, 1 ];
-    let fact = function( n ) {
-        let result = arr[n];
-        if(typeof result !== 'number') {
-            result = n * fact(n-1);
-            arr[n] = result;
-        }
-        return result;
+
+let factorial = function (n) {
+    let fact = 1;
+    for(let i=1;i<=n;i++) {
+        fact *= i;
     }
     return fact;
-}());
+}
 
 pascal(5);
