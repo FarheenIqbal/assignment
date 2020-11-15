@@ -1,22 +1,20 @@
 function secondLargest(arr) {
-    let indexOfLarge = largest(arr);
-    let bArr=arr.slice();
-    bArr[indexOfLarge]=-Infinity;
-    return bArr[largest(bArr)];
+    
+    let large = -Infinity;
+    let lastLarge = -Infinity;
 
-}
-
-function largest(arr) {
-    let large = arr[0];
-    let index = 0;
-    for(let i = 1;i < arr.length; i++) {
-        if( large < arr[i] ) {
+    for(let i = 0;i < arr.length; i++) {
+        if( arr[i] > large ) {
+            lastLarge = large;
             large = arr[i];
-            index = i;
+        }
+        else if(arr[i] > lastLarge) {
+            lastLarge = arr[i];
         }
     }
-    return index;
+    return lastLarge;
 }
 
-console.log(secondLargest([11,78,3]));
-console.log(secondLargest([1,78,3,90,12,0]));
+console.log(secondLargest([11,11,10]));                 //11
+console.log(secondLargest([11,18,113,9,12,10]));        //18
+console.log(secondLargest([11,178,13,9]));              //13
