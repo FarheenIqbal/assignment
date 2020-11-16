@@ -7,26 +7,29 @@ function sumOfPrimes(arr) {
 }
 
 function primes(n) {
-    let i, j;
     let arr=[];
-    for(i=1;i<=n;i++) {
-        for(j=2;j<i;j++) {
-            if(i%j == 0) {
-              break;
-            } 
-        }
-        if(j==i) {
-         arr.push(i);
-        }
+    for(let i=2;i<n;i++) {
+        if(isPrime(i)) {
+            arr.push(i);
+        }    
     }
     return arr;
 }
 
-console.log(primes(0));                     //[]
-console.log(sumOfPrimes(primes(0)));        //0
+function isPrime(num) {
+  for(let j=2;j<num;j++) {
+    if(num%j == 0) {
+      return false;
+    } 
+  }
+  return true;
+}
 
-console.log(primes(5));                     //[2,3,5]
-console.log(sumOfPrimes(primes(5)));        //10
+console.log(primes(3));                     //[2]
+console.log(sumOfPrimes(primes(3)));        //2
+
+console.log(primes(5));                     //[2,3]
+console.log(sumOfPrimes(primes(5)));        //5
 
 console.log(primes(15));                    //[2,3,5,7,11,13]
 console.log(sumOfPrimes(primes(15)));       //41
