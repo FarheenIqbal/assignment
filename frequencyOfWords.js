@@ -22,12 +22,7 @@ function getWords(inputString) {
           wordsArr.push(word);
           i += word.length;
          }
-         console.log(wordsArr+i);
     }    
-    //add last word
-    //if(word.length > 0) {
-      //  wordsArr.push(word);
-    //}
     return wordsArr;
 }
 
@@ -39,7 +34,6 @@ function getWord(inputString,i) {
         }
         else break;
     }
-    console.log(word);
     return word;
 }
 
@@ -53,3 +47,16 @@ function isSeparater(char) {
 
 let x = getWords("Its a dancing house. In this house, there's a granny, a sleeping granny");
 console.log(frequency(x));
+ 
+// output : 
+// {
+//   Its: 1,
+//   a: 3,
+//   dancing: 1,
+//   house: 2,
+//   In: 1,
+//   this: 1,
+//   "there's": 1,
+//   granny: 2,
+//   sleeping: 1
+// }
