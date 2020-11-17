@@ -3,14 +3,20 @@ class DoublyList {
     this.list = null
   }
 
+  findNode(pos) {
+    let temp = this.list
+    for (let i = 0; i < pos; i++) {
+      temp = temp.next
+    }
+    return temp
+  }
+
   reverse() {
     let first = this.list
-    let last
-    let x
-    for (last = this.list; last.next !== null; last = last.next);
+    let last = this.findNode(this.length() - 1)
 
     for (let i = 0; i < this.length() / 2; i++) {
-      x = first.data
+      let x = first.data
       first.data = last.data
       last.data = x
       first = first.next
@@ -32,8 +38,7 @@ class DoublyList {
 
   lastElem() {
     if (this.isEmpty()) return null
-    let temp
-    for (temp = this.list; temp.next !== null; temp = temp.next);
+    let temp = this.findNode(this.length() - 1)
     return temp.data
   }
 
@@ -79,19 +84,12 @@ class DoublyList {
       this.list = node
     } else if (pos === this.length()) {
       //insert at end
-      temp = this.list
-      for (let i = 0; i < pos - 1; i++) {
-        temp = temp.next
-      }
+      temp = this.findNode(pos - 1)
       temp.next = node
       node.prev = temp
     } else {
       //insert in middle
-      temp = this.list
-      let i
-      for (i = 0; i < pos - 1; i++) {
-        temp = temp.next
-      }
+      temp = this.findNode(pos - 1)
       node.next = temp.next
       temp.next.prev = node
       node.prev = temp
@@ -114,15 +112,11 @@ class DoublyList {
       }
     } else if (pos === this.length() - 1) {
       //remove last element
-      for (let i = 0; i < pos - 1; i++) {
-        temp = temp.next
-      }
+      temp = this.findNode(pos - 1)
       temp.next = null
     } else {
       //remove from middle
-      for (let i = 0; i < pos - 1; i++) {
-        temp = temp.next
-      }
+      temp = this.findNode(pos - 1)
       temp.next = temp.next.next
       temp.next.prev = temp
     }
@@ -139,11 +133,11 @@ console.log(
   myList.indexOf(9),
 )
 myList.display()
-myList.insert(40, 0)
+myList.insert(10, 0)
 myList.insert(20, 1)
-myList.insert(30, 0)
-myList.insert(10, 2)
-myList.insert(25, 1)
+myList.insert(30, 1)
+myList.insert(40, 2)
+myList.insert(50, 0)
 myList.insert(60, 5)
 myList.insert(60, 7) //wont insert
 console.log('After insertions list is ')
@@ -159,16 +153,16 @@ console.log(
   myList.indexOf(-60),
 )
 
+myList.reverse()
+console.log('After reversal list is ')
+myList.display()
+
 myList.remove(0)
 myList.remove(2)
 myList.remove(3)
 myList.remove(0)
 myList.remove(4) //wont execute
 console.log('After removals list is ')
-myList.display()
-
-myList.reverse()
-console.log('After reversal list is ')
 myList.display()
 
 //output:
