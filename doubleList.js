@@ -26,13 +26,15 @@ class DoublyList {
   }
 
   firstElem() {
-    return this.list && this.list.data
+    if (this.isEmpty()) return null
+    return this.list.data
   }
 
   lastElem() {
+    if (this.isEmpty()) return null
     let temp
-    for (temp = this.list; temp && temp.next !== null; temp = temp.next);
-    return temp && temp.data
+    for (temp = this.list; temp.next !== null; temp = temp.next);
+    return temp.data
   }
 
   isEmpty() {
@@ -48,6 +50,7 @@ class DoublyList {
     }
     return -1
   }
+
   display() {
     let temp = this.list
     while (temp !== null) {
@@ -95,9 +98,39 @@ class DoublyList {
       temp.next = node
     }
   }
+
+  remove(pos) {
+    if (pos < 0 || pos > this.length() - 1) return
+    let temp = this.list
+
+    if (pos === 0) {
+      //remove first element
+      if (this.length() == 1) {
+        //if list has only one element
+        this.list = null
+      } else {
+        this.list = this.list.next
+        this.list.prev = null
+      }
+    } else if (pos === this.length() - 1) {
+      //remove last element
+      for (let i = 0; i < pos - 1; i++) {
+        temp = temp.next
+      }
+      temp.next = null
+    } else {
+      //remove from middle
+      for (let i = 0; i < pos - 1; i++) {
+        temp = temp.next
+      }
+      temp.next = temp.next.next
+      temp.next.prev = temp
+    }
+  }
 }
 
 let myList = new DoublyList()
+//checking empty cases
 console.log(
   myList.isEmpty(),
   myList.firstElem(),
@@ -112,8 +145,11 @@ myList.insert(30, 0)
 myList.insert(10, 2)
 myList.insert(25, 1)
 myList.insert(60, 5)
-myList.insert(60, 7)
+myList.insert(60, 7) //wont insert
+console.log('After insertions list is ')
 myList.display()
+
+//checking other functions
 console.log(
   myList.firstElem(),
   myList.lastElem(),
@@ -123,11 +159,21 @@ console.log(
   myList.indexOf(-60),
 )
 
-myList.reverse()
+myList.remove(0)
+myList.remove(2)
+myList.remove(3)
+myList.remove(0)
+myList.remove(4) //wont execute
+console.log('After removals list is ')
 myList.display()
 
-// output::
+myList.reverse()
+console.log('After reversal list is ')
+myList.display()
+
+//output:
 // true null null 0 -1
+// After insertions list is
 // 30
 // 25
 // 40
@@ -135,9 +181,9 @@ myList.display()
 // 20
 // 60
 // 30 60 false 6 3 -1
-// 60
-// 20
-// 10
+// After removals list is
 // 40
-// 25
-// 30
+// 20
+// After reversal list is
+// 20
+// 40
