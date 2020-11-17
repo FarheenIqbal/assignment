@@ -168,16 +168,20 @@ myList.display()
 //output:
 // true null null 0 -1
 // After insertions list is
-// 30
-// 25
-// 40
+// 50
 // 10
+// 30
+// 40
 // 20
 // 60
-// 30 60 false 6 3 -1
+// 50 60 false 6 1 -1
+// After reversal list is
+// 60
+// 20
+// 40
+// 30
+// 10
+// 50
 // After removals list is
 // 40
-// 20
-// After reversal list is
-// 20
-// 40
+// 10
