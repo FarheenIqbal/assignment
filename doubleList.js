@@ -13,14 +13,12 @@ class DoublyList {
 
   reverse() {
     let first = this.list
-    let last = this.findNode(this.length() - 1)
-
-    for (let i = 0; i < this.length() / 2; i++) {
-      let x = first.data
-      first.data = last.data
-      last.data = x
-      first = first.next
-      last = last.prev
+     while(first !== null) {
+      let x = first.next;
+      if(x===null) this.list = first;
+      first.next = first.prev;
+      first.prev = x;
+      first = x;
     }
   }
 
@@ -154,7 +152,7 @@ console.log(
 )
 
 myList.reverse()
-console.log('After reversal list is ')
+console.log('hello After reversal list is ')
 myList.display()
 
 myList.remove(0)
