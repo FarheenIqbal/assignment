@@ -1,23 +1,14 @@
 function pairs(arr) {
-  let pairsArr = []
-  if (arr.length === 1) return [[1, 0]]
-  for (let i = 0; i < arr.length - 1; i++) {
-    pairsArr[i] = []
-    pairsArr[i][0] = arr[i]
-    pairsArr[i][1] = arr[i + 1]
-  }
-  return pairsArr
+    let newArray=[];
+    if(arr.length === 1) return [arr[0],arr[0]];
+    for(let i=0;i<arr.length-1;i++) {
+        newArray.push([arr[i],arr[i+1]]);
+    }
+    return newArray;
 }
 
-console.log(pairs([]))
-console.log(pairs([1]))
-console.log(pairs([1, 2]))
-console.log(pairs([1, 2, 3]))
-console.log(pairs([1, 2, 3, 4]))
-
-//output
-// []
-// [ [ 1, 0 ] ]
-// [ [ 1, 2 ] ]
-// [ [ 1, 2 ], [ 2, 3 ] ]
-// [ [ 1, 2 ], [ 2, 3 ], [ 3, 4 ] ]
+console.log(pairs([]));
+console.log(pairs([7]));
+console.log(pairs([3,2]));
+console.log(pairs([0,2,3]));
+console.log(pairs([1,2,3,4]));
