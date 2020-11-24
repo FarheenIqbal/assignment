@@ -1,21 +1,16 @@
 {
-  "name": "web-starter",
-  "version": "1.0.1",
+  "name": "learning-javascript",
+  "version": "1.0.0",
   "main": "index.js",
-  "description": "Simple Web Starter for Javascript",
+  "description": "Learning Javascript",
   "scripts": {
     "start": "parcel index.html",
-    "test": "jest --passWithNoTests",
+    "test": "jest",
     "clean": "rimraf dist .cache",
     "lint": "eslint \"./src/**/*.js\"",
     "validate": "yarn test && yarn test"
-  },
-  "keywords": [
-    "starter",
-    "parcel"
-  ],
-  "author": "Pervez Iqbal",
-  "license": "MIT",
+  },  
+  "author": "Farheen Iqbal",  
   "devDependencies": {
     "@babel/core": "^7.12.8",
     "@babel/plugin-proposal-class-properties": "7.12.1",
