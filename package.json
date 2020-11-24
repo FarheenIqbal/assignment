@@ -5,7 +5,10 @@
   "description": "Simple Web Starter for Javascript",
   "scripts": {
     "start": "parcel index.html",
-    "lint": "eslint \"./src/**/*.js\""
+    "test": "jest --passWithNoTests",
+    "clean": "rimraf dist .cache",
+    "lint": "eslint \"./src/**/*.js\"",
+    "validate": "yarn test && yarn test"
   },
   "keywords": [
     "starter",
@@ -14,18 +17,24 @@
   "author": "Pervez Iqbal",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "7.12.7",    
+    "@babel/core": "^7.12.8",
     "@babel/plugin-proposal-class-properties": "7.12.1",
+    "@babel/preset-env": "^7.12.7",
     "@types/chance": "1.1.0",
+    "@types/jest": "26.0.15",
+    "babel-jest": "^26.6.3",
     "chance": "1.1.7",
     "confusing-browser-globals": "1.0.10",
     "eslint": "7.14.0",
-    "eslint-config-prettier": "6.15.0",    
+    "eslint-config-prettier": "6.15.0",
     "eslint-plugin-import": "2.22.1",
-    "eslint-plugin-no-null": "1.0.2",    
+    "eslint-plugin-jest": "24.1.0",
+    "eslint-plugin-no-null": "1.0.2",
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-unicorn": "23.0.0",
     "husky": "4.3.0",
+    "jest": "26.6.1",
+    "jsdom": "16.4.0",
     "lint-staged": "10.5.1",
     "parcel-bundler": "1.12.4",
     "prettier": "2.2.0",
@@ -34,7 +43,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint-staged",
-      "pre-push": "yarn lint"
+      "pre-push": "yarn validate"
     }
   },
   "lint-staged": {

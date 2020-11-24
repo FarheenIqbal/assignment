@@ -3,7 +3,8 @@ const restrictedGlobals = require('confusing-browser-globals')
 module.exports = {
   env: {
     browser: true,
-    es6: true,
+    es6: true,     
+    "jest/globals": true  
   },
   extends: [
     'eslint:recommended',    
@@ -14,6 +15,7 @@ module.exports = {
   plugins: [        
     'prettier',    
     'import',    
+    'jest',
     'no-null',
     'unicorn',
   ],  
@@ -135,6 +137,13 @@ module.exports = {
     radix: 'error',
     strict: ['error', 'never'],
     yoda: 'error',
+
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+
     'unicorn/filename-case': [
       'error',
       { cases: { camelCase: true, pascalCase: true } },

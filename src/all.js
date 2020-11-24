@@ -1,4 +1,4 @@
-function all(arr, func) {
+export function all(arr, func) {
   if (func === undefined) {
     return true
   }
@@ -10,9 +10,3 @@ function all(arr, func) {
   }
   return true
 }
-
-console.log(all([1, 2, 3, 4], x => x > 1)) // false
-console.log(all([2, 3, 4], x => x > 1)) // true
-console.log(all([1, 2, 3, 4], x => x < 1)) // false
-console.log(all([1, 2, 3, 4], x => x >= 1)) // true
-console.log(all([1, 2, 3, 4])) // true
