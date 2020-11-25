@@ -8,5 +8,5 @@
   "arrowParens": "avoid",
   "jsxSingleQuote": false,
   "printWidth": 80,
-  "trailingComma": "all"
+  "trailingComma": "es5"
 }

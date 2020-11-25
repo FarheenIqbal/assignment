@@ -4,19 +4,21 @@ function once(func) {
     if (execute === true) {
       execute = false
       func()
-    } else return null
+    } else {
+      return undefined
+    }
   }
   return x
 }
 
-let hello = once(() => {
+const hello = once(() => {
   console.log('hello')
 })
-hello() //hello
-hello() //no output
+hello() // hello
+hello() // no output
 
-let bye = once(() => {
+const bye = once(() => {
   console.log('bye')
 })
-bye() //bye
-bye() //no output
+bye() // bye
+bye() // no output

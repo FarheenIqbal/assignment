@@ -1,54 +1,57 @@
-
 function frequency(words) {
-  let freq = { };
-  for(let i=0;i<words.length;i++) {
-    if(typeof freq[words[i]] === 'undefined') {
-      freq[words[i]] = 1;
-    }
-    else {
-      freq[words[i]]++;
+  const freq = {}
+  for (let i = 0; i < words.length; i++) {
+    if (typeof freq[words[i]] === 'undefined') {
+      freq[words[i]] = 1
+    } else {
+      freq[words[i]]++
     }
   }
-  return freq;
+  return freq
 }
 
 function getWords(inputString) {
-    let wordsArr=[];
-    let word="";
- 
-    for(let i=0;i<inputString.length;i++) {
-        word = getWord(inputString,i);
-        if(word.length > 0) {
-          wordsArr.push(word);
-          i += word.length;
-         }
-    }    
-    return wordsArr;
-}
+  const wordsArr = []
+  let word = ''
 
-function getWord(inputString,i) {
-    let word="";
-    for(;i<inputString.length;i++) {
-        if( ! isSeparater(inputString[i]) ) {
-          word += inputString[i]; 
-        }
-        else break;
+  for (let i = 0; i < inputString.length; i++) {
+    word = getWord(inputString, i)
+    if (word.length > 0) {
+      wordsArr.push(word)
+      i += word.length
     }
-    return word;
+  }
+  return wordsArr
 }
 
-function isSeparater(char) {
-    return char===" " || 
-           char==="\t" || 
-           char==="\n" || 
-           char==="."  ||
-           char===","
+function getWord(inputString, pos) {
+  let word = ''
+  for (let i = pos; i < inputString.length; i++) {
+    if (!isSeparator(inputString[i])) {
+      word += inputString[i]
+    } else {
+      break
+    }
+  }
+  return word
 }
 
-let x = getWords("Its a dancing house. In this house, there's a granny, a sleeping granny");
-console.log(frequency(x));
- 
-// output : 
+function isSeparator(char) {
+  return (
+    char === ' ' ||
+    char === '\t' ||
+    char === '\n' ||
+    char === '.' ||
+    char === ','
+  )
+}
+
+const x =
+  "Its a dancing house. In this house, there's a granny, a sleeping granny"
+
+console.log(frequency(getWords(x)))
+
+// output :
 // {
 //   Its: 1,
 //   a: 3,

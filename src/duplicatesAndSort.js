@@ -1,82 +1,99 @@
 function sort(words) {
-    let key, i, j;
-    for(i = 1; i < words.length; i++) {
-        key = words[i];
-        for(j = i-1; j >= 0 && key < words[j] ;j--) {
-            words[j+1] = words[j];
-        }
-        words[j+1] = key;
+  let key, i, j
+  for (i = 1; i < words.length; i++) {
+    key = words[i]
+    for (j = i - 1; j >= 0 && key < words[j]; j--) {
+      words[j + 1] = words[j]
     }
-    return words;
+    words[j + 1] = key
+  }
+  return words
 }
 
-function removeDuplicates(words) {
-    for(let i=0;i<words.length;i++) {
-        for(let j=0;j<words.length;j++) {
-            if(words[j] === words[i] && i!=j) {
-                words = removeElement(words,j);
-            }
-        }
+function removeDuplicates(arr) {
+  const result = []
+  if (!arr) {
+    return []
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (!result.includes(arr[i])) {
+      result.push(arr[i])
     }
-    return words;
+  }
+  return result
 }
+// function removeDuplicates(words) {
+//   const arr = words
+//   for (let i = 0; i < arr.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       if (words[j] === words[i] && i !== j) {
+//         words = removeElement(words, j)
+//       }
+//     }
+//   }
+//   return words
+// }
 
-function removeElement(words, pos) {
-    for(let i = pos; i < words.length-1 ; i++) {
-        words[i] = words[i+1]
-    }
-    words.length--;
-    return words;
-}
+// function removeElement(words, pos) {
+//   for (let i = pos; i < words.length - 1; i++) {
+//     words[i] = words[i + 1]
+//   }
+//   words.length--
+//   return words
+// }
 
 function getWords(inputString) {
-    let wordsArr=[];
-    let word="";
- 
-    for(let i=0;i<inputString.length;i++) {
-        word = getWord(inputString,i);
-        if(word.length > 0) {
-          wordsArr.push(word);
-          i += word.length;
-         }
-    }    
-    return wordsArr;
-}
+  const wordsArr = []
+  let word = ''
 
-function getWord(inputString,i) {
-    let word="";
-    for(;i<inputString.length;i++) {
-        if( ! isSeparater(inputString[i]) ) {
-          word += inputString[i]; 
-        }
-        else break;
+  for (let i = 0; i < inputString.length; i++) {
+    word = getWord(inputString, i)
+    if (word.length > 0) {
+      wordsArr.push(word)
+      i += word.length
     }
-    return word;
+  }
+  return wordsArr
 }
 
-function isSeparater(char) {
-    return char===" " || 
-           char==="\t" || 
-           char==="\n" || 
-           char==="."  ||
-           char===","
+function getWord(inputString, pos) {
+  let word = ''
+  for (let i = pos; i < inputString.length; i++) {
+    if (!isSeparator(inputString[i])) {
+      word += inputString[i]
+    } else {
+      break
+    }
+  }
+  return word
 }
 
- let str1 = "Its a dancing house. In this house, \t \n \n there's a granny,\n\n\n a dancing granny,  \n on that granny there's a ehan,  \na sleeping ehan";
- let words1 = getWords(str1);
- console.log("Extracted words : " , words1);
- words1 = removeDuplicates(words1);
- console.log("After removing duplicates : " , words1);
- console.log("Sorted : " , sort(words1));
+function isSeparator(char) {
+  return (
+    char === ' ' ||
+    char === '\t' ||
+    char === '\n' ||
+    char === '.' ||
+    char === ','
+  )
+}
 
-let str2 = " E B A B D A C D E C B A D";
-let words2 = getWords(str2);
-console.log("Extracted words : " , words2);
-words2 = removeDuplicates(words2);
-console.log("After removing duplicates : " , words2);
-console.log("Sorted : " , sort(words2));
+const str1 =
+  "Its a dancing house. In this house, \t \n \n there's a granny,\n\n\n a dancing granny,  \n on that granny there's a kid,  \na sleeping kid"
+let words1 = getWords(str1)
+console.log('Extracted words : ', words1)
+words1 = removeDuplicates(words1)
+console.log('After removing duplicates : ', words1)
+console.log('Sorted : ', sort(words1))
 
-//output::
+const str2 = ' E B A B D A C D E C B A D'
+let words2 = getWords(str2)
+console.log('Extracted words : ', words2)
+words2 = removeDuplicates(words2)
+console.log('After removing duplicates : ', words2)
+console.log('Sorted : ', sort(words2))
+
+// output::
 // Extracted words :  [
 //     'Its',    'a',       'dancing',
 //     'house',  'In',      'this',
@@ -84,8 +101,8 @@ console.log("Sorted : " , sort(words2));
 //     'granny', 'a',       'dancing',
 //     'granny', 'on',      'that',
 //     'granny', "there's", 'a',
-//     'ehan',   'a',       'sleeping',
-//     'ehan'
+//     'kid',   'a',       'sleeping',
+//     'kid'
 //   ]
 //   After removing duplicates :  [
 //     'Its',     'a',
@@ -93,12 +110,12 @@ console.log("Sorted : " , sort(words2));
 //     'In',      'this',
 //     "there's", 'granny',
 //     'on',      'that',
-//     'ehan',    'sleeping'
+//     'kid',    'sleeping'
 //   ]
 //   Sorted :  [
 //     'In',       'Its',
 //     'a',        'dancing',
-//     'ehan',     'granny',
+//     'kid',     'granny',
 //     'house',    'on',
 //     'sleeping', 'that',
 //     "there's",  'this'

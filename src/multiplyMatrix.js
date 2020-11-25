@@ -1,8 +1,8 @@
-let multiplyMatrix = function (matrixA, matrixB) {
-  let rowSize = matrixA.length
-  let colSize = matrixB[0].length
+const multiplyMatrix = function (matrixA, matrixB) {
+  const rowSize = matrixA.length
+  const colSize = matrixB[0].length
 
-  let matrixC = []
+  const matrixC = []
 
   for (let i = 0; i < rowSize; i++) {
     matrixC[i] = []
@@ -14,15 +14,15 @@ let multiplyMatrix = function (matrixA, matrixB) {
   return matrixC
 }
 
-let getColumn = function (matrix, j) {
-  let arr = []
+const getColumn = function (matrix, j) {
+  const arr = []
   for (let i = 0; i < matrix.length; i++) {
     arr[i] = matrix[i][j]
   }
   return arr
 }
 
-let multiplyArray = function (arrA, arrB) {
+const multiplyArray = function (arrA, arrB) {
   let result = 0
   for (let i = 0; i < arrA.length; i++) {
     result += arrA[i] * arrB[i]
@@ -30,11 +30,11 @@ let multiplyArray = function (arrA, arrB) {
   return result
 }
 
-let aa = [
+const aa = [
   [1, 2, 3],
   [4, 5, 6],
 ]
-let bb = [
+const bb = [
   [1, 4],
   [2, 5],
   [3, 6],

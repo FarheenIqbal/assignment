@@ -8,7 +8,7 @@ function isMonth(month) {
 
 function isDay(day, month) {
   switch (month) {
-    //anuary, March, May, July, August, October, December.
+    // January, March, May, July, August, October, December.
     case 1:
     case 3:
     case 5:
@@ -17,10 +17,8 @@ function isDay(day, month) {
     case 10:
     case 12:
       return day >= 1 && day <= 31
-      break
     default:
       return day >= 1 && day <= 30
-      break
   }
 }
 

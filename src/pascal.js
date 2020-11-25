@@ -1,30 +1,29 @@
-let pascal = function (lines) {
-    let arr = [];
-    for(let i = 0;i < lines; i++) {
-        arr.push(getCoeff(i));
-    }
-    return arr;
+const pascal = function (lines) {
+  const arr = []
+  for (let i = 0; i < lines; i++) {
+    arr.push(getCoefficient(i))
+  }
+  return arr
 }
 
-function getCoeff(i) {
-    let arr=[];
-    for(let j = 0; j <= i; j++) {
-        if(i == 0 || i == j){
-          arr.push(1);
-        }
-        else {
-          arr.push( factorial(i) / ( factorial(j) * factorial(i-j) ) );       
-        }   
+function getCoefficient(i) {
+  const arr = []
+  for (let j = 0; j <= i; j++) {
+    if (i === 0 || i === j) {
+      arr.push(1)
+    } else {
+      arr.push(factorial(i) / (factorial(j) * factorial(i - j)))
     }
-    return arr;
+  }
+  return arr
 }
 
-let factorial = function (n) {
-    let fact = 1;
-    for(let i = 1;i <= n; i++) {
-        fact *= i;
-    }
-    return fact;
+const factorial = function (n) {
+  let fact = 1
+  for (let i = 1; i <= n; i++) {
+    fact *= i
+  }
+  return fact
 }
 
-console.log(pascal(5));
+console.log(pascal(5))

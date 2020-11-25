@@ -1,8 +1,8 @@
 function zip(...arr) {
-  let result = []
-  let colsize = maxColSize(arr)
-  for (let i = 0; i < colsize; i++) {
-    let x = getColumn(arr, i)
+  const result = []
+  const colSize = maxColSize(arr)
+  for (let i = 0; i < colSize; i++) {
+    const x = getColumn(arr, i)
     result.push(x)
   }
   return result
@@ -19,7 +19,7 @@ function maxColSize(arr) {
 }
 
 function getColumn(arr, col) {
-  let x = []
+  const x = []
   for (let i = 0; i < arr.length; i++) {
     x.push(arr[i][col])
   }

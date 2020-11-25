@@ -1,21 +1,13 @@
 function maxBy(arrOfObjects, func) {
-  const arr = []
-  for (let i = 0; i < arrOfObjects.length; i++) {
-    arr.push(func(arrOfObjects[i]))
-  }
-  return arrOfObjects[maxIndex(arr)]
-}
-
-function maxIndex(arr) {
-  let x = arr[0]
   let index = 0
-  for (let i = 1; i < arr.length; i++) {
-    if (x < arr[i]) {
-      x = arr[i]
+  let max = func(arrOfObjects[0])
+  for (let i = 1; i < arrOfObjects.length; i++) {
+    if (max < func(arrOfObjects[i])) {
+      max = func(arrOfObjects[i])
       index = i
     }
   }
-  return index
+  return arrOfObjects[index]
 }
 
 const employees = [
