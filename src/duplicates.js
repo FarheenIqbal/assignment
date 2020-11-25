@@ -1,4 +1,4 @@
-function duplicates(arr) {
+export function duplicates(arr) {
   const result = []
   if (!arr) {
     return []
@@ -10,12 +10,3 @@ function duplicates(arr) {
   }
   return result
 }
-
-console.log(duplicates())
-console.log(duplicates([3]))
-console.log(duplicates([1, 1, 2, 12, 2, 3, 33, 5, 3]))
-
-// output
-// []
-// [ 3 ]
-// [ 1, 2, 12, 3, 33, 5 ]

@@ -1,4 +1,4 @@
-function fibonacci(n) {
+export function fibonacci(n) {
   if (n <= 0) {
     return [0]
   }
@@ -10,8 +10,3 @@ function fibonacci(n) {
   }
   return arr
 }
-
-console.log(fibonacci(-1))
-console.log(fibonacci(0))
-console.log(fibonacci(1))
-console.log(fibonacci(10))

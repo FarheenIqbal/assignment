@@ -1,4 +1,4 @@
-function deepGet(obj, arr) {
+export function deepGet(obj, arr) {
   let x = obj[arr[0]]
   for (let i = 1; i < arr.length; i++) {
     x = x[arr[i]]
@@ -9,8 +9,8 @@ function deepGet(obj, arr) {
   return x
 }
 
-const index = 2
-const data = {
+export const index = 2
+export const data = {
   foo: {
     foz: [1, 2, 3],
     bar: {
@@ -18,7 +18,3 @@ const data = {
     },
   },
 }
-
-console.log(deepGet(data, ['foo', 'foz', index])) // 3
-console.log(deepGet(data, ['foo', 'bar', 'baz', 1])) // b
-console.log(deepGet(data, ['foo', 'bar', 'baz', 8, 'foz'])) // null

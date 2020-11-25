@@ -1,4 +1,4 @@
-function isDate(day, month, year) {
+export function isDateValid(day, month, year) {
   return isMonth(month) && isDay(day, month, year) && isYear(year)
 }
 
@@ -38,9 +38,3 @@ function isLeapYear(year) {
 function isYear(year) {
   return year >= 1970 && year <= 9999
 }
-
-console.log(isDate(10, 10, 2012)) // true
-console.log(isDate(31, 4, 2012)) // false
-console.log(isDate(30, 2, 2012)) // false
-console.log(isDate(29, 2, 2000)) // true
-console.log(isDate(29, 2, 2001)) // false

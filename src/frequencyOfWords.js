@@ -1,4 +1,4 @@
-function frequency(words) {
+export function frequency(words) {
   const freq = {}
   for (let i = 0; i < words.length; i++) {
     if (typeof freq[words[i]] === 'undefined') {
@@ -10,7 +10,7 @@ function frequency(words) {
   return freq
 }
 
-function getWords(inputString) {
+export function getWords(inputString) {
   const wordsArr = []
   let word = ''
 
@@ -45,21 +45,3 @@ function isSeparator(char) {
     char === ','
   )
 }
-
-const x =
-  "Its a dancing house. In this house, there's a granny, a sleeping granny"
-
-console.log(frequency(getWords(x)))
-
-// output :
-// {
-//   Its: 1,
-//   a: 3,
-//   dancing: 1,
-//   house: 2,
-//   In: 1,
-//   this: 1,
-//   "there's": 1,
-//   granny: 2,
-//   sleeping: 1
-// }

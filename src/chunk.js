@@ -1,4 +1,4 @@
-function chunk(arr, size) {
+export function chunk(arr, size) {
   if (!arr || !size) {
     return []
   }
@@ -13,9 +13,3 @@ function chunk(arr, size) {
   }
   return result
 }
-
-console.log(chunk()) // []
-console.log(chunk([1, 2, 3, 4, 5])) // []
-console.log(chunk([1, 2, 3, 4, 5], 1)) // [ [ 1 ], [ 2 ], [ 3 ], [ 4 ], [ 5 ] ]
-console.log(chunk([1, 2, 3, 4, 5], 2)) // [ [ 1, 2 ], [ 3, 4 ], [ 5 ] ]
-console.log(chunk([1, 2, 3, 4, 5], 3)) // [ [ 1, 2, 3 ], [ 4, 5 ] ]

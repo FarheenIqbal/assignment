@@ -1,4 +1,4 @@
-function mergeSorted(arrA, arrB) {
+export function mergeSorted(arrA, arrB) {
   const arrC = []
   let i = arrA.length - 1
   let j = arrB.length - 1

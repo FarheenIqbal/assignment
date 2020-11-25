@@ -1,4 +1,4 @@
-const multiplyMatrix = function (matrixA, matrixB) {
+export const multiplyMatrix = function (matrixA, matrixB) {
   const rowSize = matrixA.length
   const colSize = matrixB[0].length
 
@@ -29,15 +29,3 @@ const multiplyArray = function (arrA, arrB) {
   }
   return result
 }
-
-const aa = [
-  [1, 2, 3],
-  [4, 5, 6],
-]
-const bb = [
-  [1, 4],
-  [2, 5],
-  [3, 6],
-]
-
-console.log(multiplyMatrix(bb, aa))

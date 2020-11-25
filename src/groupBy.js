@@ -1,4 +1,4 @@
-function groupBy(arr, func) {
+export function groupBy(arr, func) {
   const obj = {}
   if (!arr || !func) {
     return obj
@@ -14,6 +14,3 @@ function groupBy(arr, func) {
   }
   return obj
 }
-
-console.log(groupBy([6.1, 4.2, 6.3], Math.floor))
-// console.log(groupBy(['one', 'two', 'three'], 'length')) ??

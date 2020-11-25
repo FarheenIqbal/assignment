@@ -1,4 +1,4 @@
-function objectToPairs(obj) {
+export function objectToPairs(obj) {
   if (!obj) {
     return []
   }
@@ -9,7 +9,3 @@ function objectToPairs(obj) {
   }
   return arr
 }
-
-console.log(objectToPairs())
-console.log(objectToPairs({ a: 1 }))
-console.log(objectToPairs({ a: 1, b: 2 }))

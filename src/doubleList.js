@@ -1,4 +1,4 @@
-class DoublyList {
+export class DoublyList {
   constructor() {
     this.list = undefined
   }
@@ -131,71 +131,4 @@ class DoublyList {
   }
 }
 
-const myList = new DoublyList()
-// checking empty cases
-console.log(myList.isEmpty())
-console.log(myList.firstElem())
-console.log(myList.lastElem())
-console.log(myList.length())
-console.log(myList.indexOf())
-
-myList.display()
-myList.insert(10, 0)
-myList.insert(20, 1)
-myList.insert(30, 1)
-myList.insert(40, 2)
-myList.insert(50, 0)
-myList.insert(60, 5)
-myList.insert(60, 7) // wont insert
-console.log('After insertions list is ')
-myList.display()
-
-// checking other functions
-console.log(myList.isEmpty())
-console.log(myList.firstElem())
-console.log(myList.lastElem())
-console.log(myList.length())
-console.log(myList.indexOf(10))
-console.log(myList.indexOf(-60))
-
-myList.reverse()
-console.log('hello After reversal list is ')
-myList.display()
-
-myList.remove(0)
-myList.remove(2)
-myList.remove(3)
-myList.remove(0)
-myList.remove(4) // wont execute
-console.log('After removals list is ')
-myList.display()
-
-// output:
-// true
-// undefined
-// undefined
-// 0
-// -1
-// After insertions list is
-// 50
-// 10
-// 30
-// 40
-// 20
-// 60
-// false
-// 50
-// 60
-// 6
-// 1
-// -1
-// hello After reversal list is
-// 60
-// 20
-// 40
-// 30
-// 10
-// 50
-// After removals list is
-// 40
-// 10
+export const myList = new DoublyList()
