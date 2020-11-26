@@ -19,6 +19,9 @@ Happy linting! 💖
         "ulid",
         "utils"
     ],
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
     "emmet.includeLanguages": {
