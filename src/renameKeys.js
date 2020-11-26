@@ -1,5 +1,5 @@
 // replaces names of multiple object keys with values provided
-function renameKeys(keysObject, object) {
+export function renameKeys(keysObject, object) {
   if (!keysObject || !object) {
     return {}
   }
@@ -20,9 +20,3 @@ function renameKeys(keysObject, object) {
 
   return newObj
 }
-
-const changes = { name: 'first-name', job: 'passion' }
-const object = { name: 'Bob', job: 'front-end master', shoeSize: 10 }
-console.log(renameKeys(changes, object))
-
-// { 'first-name': 'Bob', passion: 'front-end master', shoeSize: 10 }

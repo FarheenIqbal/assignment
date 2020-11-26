@@ -13,7 +13,3 @@ function reverse(arr) {
   }
   return arr
 }
-
-export const subtract = (x, y) => x - y
-export const subtract3 = (x, y, z) => x - y - z
-export const divide = (x, y) => x / y

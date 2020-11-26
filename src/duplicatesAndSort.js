@@ -58,8 +58,3 @@ function isSeparator(char) {
     char === ','
   )
 }
-
-export const str1 =
-  "Its a dancing house. In this house, \t \n \n there's a granny,\n\n\n a dancing granny,  \n on that granny there's a kid,  \na sleeping kid"
-
-export const str2 = ' E B A B D A C D E C B A D'

@@ -1,4 +1,4 @@
-function secondLargest(arr) {
+export function secondLargest(arr) {
   let large = -Infinity
   let lastLarge = -Infinity
 
@@ -12,7 +12,3 @@ function secondLargest(arr) {
   }
   return lastLarge
 }
-
-console.log(secondLargest([11, 11, 10])) // 11
-console.log(secondLargest([11, 18, 113, 9, 12, 10])) // 18
-console.log(secondLargest([11, 178, 13, 9])) // 13

@@ -1,4 +1,4 @@
-const pascal = function (lines) {
+export const pascal = function (lines) {
   const arr = []
   for (let i = 0; i < lines; i++) {
     arr.push(getCoefficient(i))
@@ -25,5 +25,3 @@ const factorial = function (n) {
   }
   return fact
 }
-
-console.log(pascal(5))

@@ -1,4 +1,4 @@
-function zip(...arr) {
+export function zip(...arr) {
   const result = []
   const colSize = maxColSize(arr)
   for (let i = 0; i < colSize; i++) {
@@ -25,9 +25,3 @@ function getColumn(arr, col) {
   }
   return x
 }
-
-console.log(zip(['a', 'b'], [1, 2], [true, false]))
-console.log(zip(['a'], [1, 2], [true, false]))
-// output:
-// [ [ 'a', 1, true ], [ 'b', 2, false ] ]
-// [ [ 'a', 1, true ], [ undefined, 2, false ] ]

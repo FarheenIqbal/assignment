@@ -1,5 +1,5 @@
 // picks key-value pairs corresponding to given keys
-function pick(obj, keys) {
+export function pick(obj, keys) {
   if (!obj || !keys) {
     return {}
   }
@@ -9,5 +9,3 @@ function pick(obj, keys) {
   }
   return newObj
 }
-
-console.log(pick({ a: 1, b: '2', c: 3 }, ['a', 'c'])) // { a: 1, c: 3 }

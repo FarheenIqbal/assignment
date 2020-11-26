@@ -8,13 +8,3 @@ export function deepGet(obj, arr) {
   }
   return x
 }
-
-export const index = 2
-export const data = {
-  foo: {
-    foz: [1, 2, 3],
-    bar: {
-      baz: ['a', 'b', 'c'],
-    },
-  },
-}
