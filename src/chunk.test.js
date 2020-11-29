@@ -9,4 +9,7 @@ it('chunk', () => {
     [1, 2, 3],
     [4, 5],
   ])
+  expect(
+    chunk(['hi', 'am', 'why', 'when', 'how', 'ever', 'all'], 2)
+  ).toStrictEqual([['hi', 'am'], ['why', 'when'], ['how', 'ever'], ['all']])
 })

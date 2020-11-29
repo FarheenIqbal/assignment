@@ -1,4 +1,4 @@
-function max3(x:number, y:number, z:number) :number {
+export function max3(x:number, y:number, z:number) :number {
   return max2(x, max2(y, z))
 }
 

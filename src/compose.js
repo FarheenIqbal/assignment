@@ -1,18 +1,16 @@
-function compose(...multiFunctions) {
+export function compose(...multiFunctions) {
   return (...args) => {
+    if (!args || !multiFunctions) {
+      return undefined
+    }
     let result = args
-    for (let i = multiFunctions.length - 1; i >= 0; i--) {
-      if (Array.isArray(result)) {
-        result = multiFunctions[i](...result)
-      } else {
-        result = multiFunctions[i](result)
-      }
+    let i = multiFunctions.length - 1
+    // calling last function with multi parameters
+    result = multiFunctions[i--](...result)
+    for (; i >= 0; i--) {
+      // calling remaining functions
+      result = multiFunctions[i](result)
     }
     return result
   }
 }
-const mul5 = x => x * 5
-const sub10 = x => x - 10
-const add15 = x => x + 15
-const multiply = (x, y) => x * y
-console.log(compose(mul5, sub10, add15, multiply)(200, 100))

@@ -1,4 +1,4 @@
-export function once(func) {
+function once(func) {
   let execute = true
   function x() {
     if (execute === true) {
@@ -10,3 +10,18 @@ export function once(func) {
   }
   return x
 }
+const hello = once(() => {
+  console.log('hello')
+})
+
+const bye = once(() => {
+  console.log('bye')
+})
+
+hello()
+hello()
+hello()
+
+bye()
+bye()
+bye()
