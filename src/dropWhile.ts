@@ -1,5 +1,4 @@
-type T = number | string | boolean
-export function dropWhile(arr: T[], func: Function): T[] {
+export function dropWhile<T>(arr: T[], func: Function): T[] {
   const result: T[] = []
   if (!arr) {
     return []

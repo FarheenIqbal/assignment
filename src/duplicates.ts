@@ -1,6 +1,4 @@
-type T = number | string | boolean
-
-export function duplicates(arr: T[]): T[] {
+export function duplicates<T>(arr: T[]): T[] {
   const result: T[] = []
   if (!arr) {
     return []

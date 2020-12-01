@@ -1,0 +1,11 @@
+body {
+  margin: 10px;
+}
+
+img {
+  float: left;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  border: solid blue 2px;
+}

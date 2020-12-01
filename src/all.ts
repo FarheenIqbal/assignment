@@ -1,5 +1,4 @@
-type T = number | string | boolean
-export function all(arr: T[], func: Function) {
+export function all<T>(arr: T[], func: Function) {
   if (func === undefined) {
     return true
   }

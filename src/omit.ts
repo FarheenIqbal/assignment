@@ -1,6 +1,5 @@
 // omits key-value pairs corresponding to given keys
-type T = number | string | boolean
-type A = { [key: string]: T }
+type A = { [key: string]: number | string | boolean }
 type C = (keyof A)[]
 export function omit(obj: A, keys: C): A {
   if (!obj) {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title> Changes Image when mouse is over</title>
+  <style>
+    body {
+       margin: 10px;
+  }
+
+  img {
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border: solid blue 2px;
+  }
+  </style>
+  <script>
+        window.onload = init;
+    function init() {
+  const images = document.getElementsByTagName('img')
+
+  for (let i = 0; i < images.length; i++) {
+    images[i].onmouseover = changeImage
+    images[i].onmouseout = changeImageBack
+  }
+}
+
+function changeImage(event) {
+  const image = event.target;
+  image.src = `${image.id}change.jpg`
+}
+function changeImageBack(event) {
+  const image = event.target;
+  image.src = `${image.id}.jpg`
+}
+
+  </script>
+</head>
+<body>
+  <div>
+    <img id="one" src='one.jpg' />
+  </div>
+  <div>
+    <img id="two" src='two.jpg' />
+  </div>
+  <div>
+    <img id="three" src='three.jpg' />
+  </div>
+
+</body>
+</html>
+

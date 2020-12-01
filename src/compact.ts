@@ -1,5 +1,4 @@
-type T = number | boolean | string
-export function compact(arr: T[]): T[] {
+export function compact<T>(arr: T[]): T[] {
   const result: Array<T> = []
   if (!arr) {
     return []

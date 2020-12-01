@@ -1,5 +1,4 @@
-type T = number | boolean | string
-export function chunk(arr: T[], size: number): T[][] {
+export function chunk<T>(arr: T[], size: number): T[][] {
   if (!arr || !size) {
     return []
   }
