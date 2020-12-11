@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Baked Salmon",
+    "ingredients": [
+      { "name": "Salmon", "amount": 1, "measurement": "lb" },
+      { "name": "Cashews", "amount": 1, "measurement": "cup" },
+      { "name": "French beans", "amount": 2, "measurement": "cups" },
+      { "name": "Olive Oil", "amount": 1, "measurement": "tbsp" }
+    ],
+    "steps": [
+      "Preheat the oven to 350 degrees",
+      "Spread the Olive Oil around a baking dish",
+      "Add salmon and french beans",
+      "Bake for 15 mins",
+      "Remove from oven. Add cashews and serve"
+    ]
+  },
+
+  {
+    "name": "Fish Tacos",
+    "ingredients": [
+      { "name": "Fish", "amount": 1, "measurement": "lb" },
+      { "name": "Cheese", "amount": 1, "measurement": "cup" },
+      { "name": "Tomatoes", "amount": 2, "measurement": "cups" },
+      { "name": "Olive Oil", "amount": 1, "measurement": "tbsp" }
+    ],
+    "steps": [
+      "Preheat the oven to 350 degrees",
+      "Spread the Olive Oil around a baking dish",
+      "Add Fish and Tomatoes",
+      "Bake for 15 mins",
+      "Remove from oven. Add cheese and serve"
+    ]
+  }
+]
