@@ -2,10 +2,16 @@ import React, { useState } from 'react';
 import Board from './Board';
 import { shuffle } from '../helper';
 
-const Game = () => {
-  const [board, setBoard] = useState(
-    shuffle(['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15])
-  );
+const Game = ({ rowSize, colSize }) => {
+  const createBoard = () => {
+    const arr = [];
+    for (let i = 0; i < rowSize * colSize - 1; i++) {
+      arr.push(i + 1);
+    }
+    arr.push('');
+    return arr;
+  };
+  const [board, setBoard] = useState(shuffle(createBoard()));
 
   const [spacePosition, setSpacePosition] = useState(board.indexOf(''));
   const [moves, setMoves] = useState(0);
@@ -23,47 +29,63 @@ const Game = () => {
     return arr;
   };
 
+  const topBorder = () => {
+    const arr = [];
+    let x = 0;
+    while (x < rowSize) {
+      arr.push(x);
+      x++;
+    }
+    return arr;
+  };
+
+  const bottomBorder = () => {
+    const arr = [];
+    let x = (rowSize - 1) * colSize;
+    while (x < rowSize * colSize) {
+      arr.push(x);
+      x++;
+    }
+    return arr;
+  };
+
+  const leftBorder = () => {
+    const arr = [];
+    let x = 0;
+    while (x < rowSize * colSize) {
+      arr.push(x);
+      x += colSize;
+    }
+    return arr;
+  };
+  const rightBorder = () => {
+    const arr = [];
+    let x = colSize - 1;
+    while (x < rowSize * colSize) {
+      arr.push(x);
+      x += colSize;
+    }
+    return arr;
+  };
+
   const getAbove = (spacePosition) => {
-    if (
-      spacePosition === 0 ||
-      spacePosition === 1 ||
-      spacePosition === 2 ||
-      spacePosition === 3
-    )
-      return null;
-    return spacePosition - 4;
+    if (topBorder().indexOf(spacePosition) < 0) return spacePosition - colSize;
+    return null;
   };
 
   const getBelow = (spacePosition) => {
-    if (
-      spacePosition === 12 ||
-      spacePosition === 13 ||
-      spacePosition === 14 ||
-      spacePosition === 15
-    )
-      return null;
-    return spacePosition + 4;
+    if (bottomBorder().indexOf(spacePosition) < 0)
+      return spacePosition + colSize;
+    return null;
   };
   const getLeft = (spacePosition) => {
-    if (
-      spacePosition === 0 ||
-      spacePosition === 4 ||
-      spacePosition === 8 ||
-      spacePosition === 12
-    )
-      return null;
-    return spacePosition - 1;
+    if (leftBorder().indexOf(spacePosition) < 0) return spacePosition - 1;
+    return null;
   };
 
   const getRight = (spacePosition) => {
-    if (
-      spacePosition === 3 ||
-      spacePosition === 7 ||
-      spacePosition === 11 ||
-      spacePosition === 15
-    )
-      return null;
-    return spacePosition + 1;
+    if (rightBorder().indexOf(spacePosition) < 0) return spacePosition + 1;
+    return null;
   };
   const style = {
     fontSize: '25px',
@@ -88,31 +110,19 @@ const Game = () => {
     return true;
   };
   const restartGame = () => {
-    const copy = shuffle([
-      '',
-      1,
-      2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12,
-      13,
-      14,
-      15,
-    ]);
+    const copy = shuffle(createBoard());
     setBoard(copy);
     setSpacePosition(copy.indexOf(''));
     setMoves(0);
   };
   return (
     <>
-      <Board squares={board} onClick={handleClick} />
+      <Board
+        squares={board}
+        rowSize={rowSize}
+        colSize={colSize}
+        onClick={handleClick}
+      />
       <div style={style}>
         <p style={style}>{isWon() ? 'You Won' : 'Number of Moves:' + moves} </p>
         <button style={style} onClick={restartGame}>
